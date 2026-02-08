@@ -1,30 +1,304 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-TW">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>指南 (Jinam)</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>K-VIBE Jinam (잠실 지남) | Global K-Pop Survival Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-    <header>
-        <h1>指南 (Jinam)</h1>
-        <nav class="language-switcher">
-            <button data-lang-switcher="zh-Hant" class="active">繁體中文</button>
-            <button data-lang-switcher="ko">한국어</button>
-        </nav>
+  <div class="app-shell">
+    <!-- ---------- Sticky Header ---------- -->
+    <header class="sticky-header">
+      <div class="header-logo">K-VIBE</div>
+      <h1 class="header-title" id="headerTitle">蠶室指南</h1>
+      <div class="header-actions">
+        <button type="button" class="icon-btn" id="btnEmergencyMap" aria-label="Emergency Map">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        </button>
+        <button type="button" class="lang-badge" id="langEn" aria-pressed="false">EN</button>
+        <button type="button" class="lang-badge active" id="langZh" aria-pressed="true">繁中</button>
+        <button type="button" class="lang-badge" id="langKo" aria-pressed="false">한국어</button>
+      </div>
     </header>
 
-    <main>
-        <section id="welcome-section">
-            <h2 data-key="welcome_title">歡迎來到 指南 (Jinam)</h2>
-            <p data-key="welcome_message">我們致力於提供最精準、最實用的指引，幫助您探索世界的每個角落。無論您是尋找旅行建議、學習資源，還是日常生活的小訣竅，指南 (Jinam) 都將是您的最佳夥伴。</p>
-            <p data-key="explore_invitation">點擊上方按鈕切換語言，或繼續閱讀探索更多。</p>
-        </section>
+    <main class="main-content">
+      <!-- ========== Panel 1: CON-001 Concert Dashboard ========== -->
+      <section class="panel active" id="panel-concerts" data-panel="concerts">
+        <div id="view-dashboard">
+          <!-- Today banner -->
+          <div class="today-banner">
+            <span data-i18n="todayBanner">今天在奧林匹克公園有 <strong>2</strong> 場演唱會</span>
+          </div>
+          <!-- Filter Chips -->
+          <div class="filter-chips">
+            <button type="button" class="chip active" data-venue="all">全部</button>
+            <button type="button" class="chip" data-venue="kspo">KSPO DOME</button>
+            <button type="button" class="chip" data-venue="handball">SK Handball Stadium</button>
+            <button type="button" class="chip" data-venue="olympic">Olympic Hall</button>
+          </div>
+          <!-- Concert Cards -->
+          <div class="concert-list" id="concertList">
+            <article class="concert-card" data-concert-id="1" data-venue="kspo">
+              <div class="card-top">
+                <span class="dday-badge">D-3</span>
+                <span class="card-date">2025.02.11 (二)</span>
+              </div>
+              <div class="artist">LE SSERAFIM</div>
+              <div class="title">2025 LE SSERAFIM WORLD TOUR</div>
+              <div class="venue">KSPO DOME (蠶室室內體育館)</div>
+              <button type="button" class="btn-view-detail">
+                <span data-i18n="viewDetail">查看詳細</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+              </button>
+            </article>
+            <article class="concert-card" data-concert-id="2" data-venue="handball">
+              <div class="card-top">
+                <span class="dday-badge blue">D-7</span>
+                <span class="card-date">2025.02.15 (六)</span>
+              </div>
+              <div class="artist">(G)I-DLE</div>
+              <div class="title">2025 (G)I-DLE WORLD TOUR</div>
+              <div class="venue">SK Handball Stadium (手球競技場)</div>
+              <button type="button" class="btn-view-detail">
+                <span data-i18n="viewDetail">查看詳細</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+              </button>
+            </article>
+            <article class="concert-card" data-concert-id="3" data-venue="kspo">
+              <div class="card-top">
+                <span class="dday-badge">D-Day</span>
+                <span class="card-date">2025.02.08 (六)</span>
+              </div>
+              <div class="artist">aespa</div>
+              <div class="title">2025 aespa LIVE TOUR</div>
+              <div class="venue">KSPO DOME (蠶室室內體育館)</div>
+              <button type="button" class="btn-view-detail">
+                <span data-i18n="viewDetail">查看詳細</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+              </button>
+            </article>
+          </div>
+        </div>
 
-        <!-- More content sections can be added here, each with data-key attributes for translation -->
+        <!-- CON-002 Concert Detail (hidden by default) -->
+        <div id="view-detail" style="display: none;">
+          <button type="button" class="btn-back" id="btnBackFromDetail">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+            <span data-i18n="back">返回</span>
+          </button>
+          <div class="detail-header">
+            <span class="dday-badge" id="detailDday">D-3</span>
+            <div class="artist" id="detailArtist">LE SSERAFIM</div>
+            <div class="title" id="detailTitle">2025 LE SSERAFIM WORLD TOUR</div>
+          </div>
+          <div class="detail-meta">
+            <div><strong data-i18n="detailDate">日期</strong>: <span id="detailDate">2025.02.11 (二) 19:00</span></div>
+            <div><strong data-i18n="detailVenue">場地</strong>: <span id="detailVenue">KSPO DOME (蠶室室內體育館)</span></div>
+            <div><strong data-i18n="detailAddress">地址</strong>: <span id="detailAddress">首爾松坡區奧林匹克路424</span></div>
+          </div>
+          <div class="detail-actions">
+            <a href="#" class="btn-primary" id="detailTicketLink" target="_blank" rel="noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+              <span data-i18n="ticketLink">購票連結</span>
+            </a>
+            <a href="#" class="btn-outline" id="detailOfficialLink" target="_blank" rel="noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              <span data-i18n="officialSite">官方網站</span>
+            </a>
+            <button type="button" class="btn-primary" id="btnGoToLive">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+              <span data-i18n="goToLive">Live 現場實況  바로가기</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== Panel 2: LIVE-001 Live Feed ========== -->
+      <section class="panel" id="panel-live" data-panel="live">
+        <div class="live-filter-row">
+          <select class="chip" id="liveConcertFilter" style="min-width: 140px; cursor: pointer;">
+            <option value="all">全部演唱會</option>
+            <option value="1">LE SSERAFIM</option>
+            <option value="2">(G)I-DLE</option>
+            <option value="3">aespa</option>
+          </select>
+          <button type="button" class="chip active" data-category="all">全部</button>
+          <button type="button" class="chip" data-category="merch">周邊 Merch</button>
+          <button type="button" class="chip" data-category="entrance">入場 Entrance</button>
+          <button type="button" class="chip" data-category="atmosphere">現場 Atmosphere</button>
+        </div>
+        <div class="feed-list" id="feedList">
+          <article class="feed-card" data-category="merch" data-concert-id="3">
+            <div class="card-head">
+              <span class="category-tag merch">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                周邊 Merch
+              </span>
+              <span class="timestamp">10 分鐘前</span>
+              <span class="feed-likes" aria-label="likes"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg> 24</span>
+            </div>
+            <img class="card-image" src="https://placehold.co/400x500/f8f9fa/e5e7eb?text=Merch+Queue" alt="周邊" />
+            <div class="card-body">
+              <p class="card-desc">蠶室 KSPO 周邊販賣處排隊狀況，目前約 50 人。建議開演前 2 小時前來。</p>
+              <p class="card-meta">aespa · KSPO DOME</p>
+              <div class="card-actions">
+                <a href="#" class="btn-share btn-share-threads" target="_blank" rel="noopener" data-share-text="蠶室 KSPO 周邊販賣處排隊狀況" data-share-type="threads">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12.186 24h-.007c-3.381 0-6.354-1.058-8.675-3.273C1.184 18.48 0 15.472 0 12.266 0 5.472 5.372 0 12.186 0 18.9 0 24 5.034 24 11.214c0 6.18-5.094 11.214-11.814 11.214z"/></svg>
+                  Threads
+                </a>
+                <a href="#" class="btn-share btn-share-line" data-share-text="蠶室 KSPO 周邊販賣處排隊狀況" data-share-type="line">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+                  Line
+                </a>
+                <button type="button" class="btn-share-native icon-btn" aria-label="Share" data-share-text="蠶室 KSPO 周邊販賣處排隊狀況" data-share-url="">Share</button>
+              </div>
+            </div>
+          </article>
+          <article class="feed-card" data-category="entrance" data-concert-id="3">
+            <div class="card-head">
+              <span class="category-tag entrance">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+                入場 Entrance
+              </span>
+              <span class="timestamp">25 分鐘前</span>
+              <span class="feed-likes" aria-label="likes"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg> 12</span>
+            </div>
+            <img class="card-image" src="https://placehold.co/400x500/f8f9fa/e5e7eb?text=Entrance" alt="入場" />
+            <div class="card-body">
+              <p class="card-desc">1 號入口已開放，安檢速度順暢。建議攜帶身分證件。</p>
+              <p class="card-meta">aespa · KSPO DOME</p>
+              <div class="card-actions">
+                <a href="#" class="btn-share btn-share-threads" data-share-text="1 號入口已開放" data-share-type="threads" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12.186 24h-.007c-3.381 0-6.354-1.058-8.675-3.273C1.184 18.48 0 15.472 0 12.266 0 5.472 5.372 0 12.186 0 18.9 0 24 5.034 24 11.214c0 6.18-5.094 11.214-11.814 11.214z"/></svg> Threads</a>
+                <a href="#" class="btn-share btn-share-line" data-share-text="1 號入口已開放" data-share-type="line">Line</a>
+                <button type="button" class="btn-share-native icon-btn" aria-label="Share" data-share-text="1 號入口已開放">Share</button>
+              </div>
+            </div>
+          </article>
+          <article class="feed-card" data-category="atmosphere" data-concert-id="1">
+            <div class="card-head">
+              <span class="category-tag atmosphere">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 0 0 6 0v-1a3 3 0 0 0-6 0"/><path d="M8 16v-5a3 3 0 0 0-6 0v1a3 3 0 0 0 6 0"/></svg>
+                現場 Atmosphere
+              </span>
+              <span class="timestamp">1 小時前</span>
+              <span class="feed-likes" aria-label="likes"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg> 8</span>
+            </div>
+            <img class="card-image" src="https://placehold.co/400x500/f8f9fa/e5e7eb?text=Weather" alt="現場" />
+            <div class="card-body">
+              <p class="card-desc">奧林匹克公園週邊晴時多雲，氣溫約 2°C。記得保暖。</p>
+              <p class="card-meta">LE SSERAFIM · KSPO DOME</p>
+              <div class="card-actions">
+                <a href="#" class="btn-share btn-share-threads" data-share-text="奧林匹克公園週邊晴時多雲" data-share-type="threads" target="_blank" rel="noopener">Threads</a>
+                <a href="#" class="btn-share btn-share-line" data-share-text="奧林匹克公園週邊晴時多雲" data-share-type="line">Line</a>
+                <button type="button" class="btn-share-native icon-btn" aria-label="Share" data-share-text="奧林匹克公園週邊晴時多雲">Share</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ========== Panel 3: MAP-001 Survival Map (Placeholder) ========== -->
+      <section class="panel" id="panel-map" data-panel="map">
+        <div class="map-placeholder">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span class="map-placeholder-title" data-i18n="mapComingSoon">生存地圖 - 即將推出</span>
+          <span class="map-placeholder-desc" data-i18n="mapDesc">Interactive map (Google Maps / Mapbox) · Jamsil area</span>
+          <ul class="map-legend" aria-label="Map overlays">
+            <li><span class="map-legend-dot map-legend-locker"></span> <span data-i18n="mapLockers">Subway lockers (Real-time: Available / Full)</span></li>
+            <li><span class="map-legend-dot map-legend-water"></span> <span data-i18n="mapWater">Water stations</span></li>
+            <li><span class="map-legend-dot map-legend-merch"></span> <span data-i18n="mapMerch">Official merch booths</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ========== Panel 4: SET-001 More / Settings ========== -->
+      <section class="panel" id="panel-more" data-panel="more">
+        <div class="settings-section">
+          <h2 class="settings-section-title" data-i18n="settingsLanguage">語言 / 設定</h2>
+          <div class="settings-list">
+            <div class="lang-switcher-row">
+              <button type="button" class="lang-option" id="setLangKo">한국어</button>
+              <button type="button" class="lang-option" id="setLangEn">English</button>
+              <button type="button" class="lang-option active" id="setLangZh">繁體中文</button>
+            </div>
+          </div>
+        </div>
+        <div class="settings-section">
+          <h2 class="settings-section-title">社群 / Community</h2>
+          <p class="community-desc" data-i18n="communityDesc">加入我們的社群，獲取實時現場資訊</p>
+          <div class="settings-list">
+            <a href="https://www.threads.net" target="_blank" rel="noopener" class="settings-item">
+              <span class="icon-wrap"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12.186 24h-.007c-3.381 0-6.354-1.058-8.675-3.273C1.184 18.48 0 15.472 0 12.266 0 5.472 5.372 0 12.186 0 18.9 0 24 5.034 24 11.214c0 6.18-5.094 11.214-11.814 11.214z"/></svg></span>
+              <span class="label">Threads</span>
+              <span class="chevron"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></span>
+            </a>
+            <a href="#" target="_blank" rel="noopener" class="settings-item">
+              <span class="icon-wrap"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.31-8.86c-1.77-.45-2.34-.94-2.34-1.67 0-.84.79-1.43 2.1-1.43 1.38 0 1.9.66 1.94 1.64h1.71c-.05-1.34-.87-2.57-2.49-2.97V5H10.9v1.69c-1.51.32-2.72 1.3-2.72 2.81 0 1.79 1.49 2.69 3.66 3.21 1.95.46 2.34 1.15 2.34 1.87 0 .53-.39 1.39-2.1 1.39-1.6 0-2.23-.59-2.32-1.64H8.04c.1 1.7 1.36 2.66 2.86 2.97V19h2.34v-1.67c1.52-.29 2.72-1.04 2.73-2.77-.01-1.32-.62-2.23-2.36-2.77z"/></svg></span>
+              <span class="label">Line Open Chat</span>
+              <span class="chevron"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></span>
+            </a>
+            <a href="#" target="_blank" rel="noopener" class="settings-item">
+              <span class="icon-wrap"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 3c5.8 0 10.5 3.66 10.5 8.18 0 4.52-4.7 8.19-10.5 8.19-1.2 0-2.36-.15-3.45-.43.18-.39.28-.82.28-1.27 0-1.2-.98-2.18-2.18-2.18-.45 0-.88.1-1.27.28C6.66 16.86 4 13.5 4 11.18 4 6.66 8.7 3 12 3z"/></svg></span>
+              <span class="label">KakaoTalk</span>
+              <span class="chevron"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></span>
+            </a>
+          </div>
+        </div>
+        <div class="settings-section">
+          <h2 class="settings-section-title" data-i18n="settingsInfo">資訊</h2>
+          <div class="settings-list">
+            <a href="#faq" class="settings-item">
+              <span class="icon-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></span>
+              <span class="label" data-i18n="faq">常見問題 FAQ</span>
+              <span class="chevron"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></span>
+            </a>
+            <a href="#about" class="settings-item">
+              <span class="icon-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></span>
+              <span class="label" data-i18n="about">關於 K-VIBE</span>
+              <span class="chevron"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></span>
+            </a>
+            <a href="#privacy" class="settings-item">
+              <span class="icon-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></span>
+              <span class="label" data-i18n="privacy">隱私權政策 Privacy Policy</span>
+              <span class="chevron"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></span>
+            </a>
+          </div>
+        </div>
+        <footer class="settings-footer">
+          <div class="social-icons">
+            <a href="#" aria-label="Threads"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.186 24h-.007c-3.381 0-6.354-1.058-8.675-3.273C1.184 18.48 0 15.472 0 12.266 0 5.472 5.372 0 12.186 0 18.9 0 24 5.034 24 11.214c0 6.18-5.094 11.214-11.814 11.214z"/></svg></a>
+          </div>
+          <p>© 2025 K-VIBE Jinam (잠실 지남) · Global K-Pop Survival Guide</p>
+          <p class="footer-tz" data-i18n="footerTz">Date/Time: Asia/Seoul · Currency: KRW / TWD</p>
+        </footer>
+      </section>
     </main>
 
-    <script src="main.js"></script>
+    <!-- ---------- Bottom Tab Bar ---------- -->
+    <nav class="bottom-tabbar" role="tablist" aria-label="Main navigation">
+      <button type="button" class="tab-item active" role="tab" aria-selected="true" data-tab="concerts" id="tab-concerts">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        <span data-tab-label="concerts">演唱會</span>
+      </button>
+      <button type="button" class="tab-item" role="tab" aria-selected="false" data-tab="live" id="tab-live">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+        <span data-tab-label="live">現場</span>
+      </button>
+      <button type="button" class="tab-item" role="tab" aria-selected="false" data-tab="map" id="tab-map">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/><line x1="9" y1="3" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="21"/></svg>
+        <span data-tab-label="map">生存地圖</span>
+      </button>
+      <button type="button" class="tab-item" role="tab" aria-selected="false" data-tab="more" id="tab-more">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
+        <span data-tab-label="more">更多</span>
+      </button>
+    </nav>
+  </div>
+
+  <script src="js/app.js"></script>
 </body>
 </html>
