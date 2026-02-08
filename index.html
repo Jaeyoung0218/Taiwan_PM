@@ -1,14 +1,30 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World</title>
-  <link href='/style.css' rel='stylesheet'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>指南 (Jinam)</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Hello, world!</h1>
-  <button onclick="console.log('hello');">Press me</button>
-  <script defer type="text/javascript" src="/main.js"></script>
+    <header>
+        <h1>指南 (Jinam)</h1>
+        <nav class="language-switcher">
+            <button data-lang-switcher="zh-Hant" class="active">繁體中文</button>
+            <button data-lang-switcher="ko">한국어</button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="welcome-section">
+            <h2 data-key="welcome_title">歡迎來到 指南 (Jinam)</h2>
+            <p data-key="welcome_message">我們致力於提供最精準、最實用的指引，幫助您探索世界的每個角落。無論您是尋找旅行建議、學習資源，還是日常生活的小訣竅，指南 (Jinam) 都將是您的最佳夥伴。</p>
+            <p data-key="explore_invitation">點擊上方按鈕切換語言，或繼續閱讀探索更多。</p>
+        </section>
+
+        <!-- More content sections can be added here, each with data-key attributes for translation -->
+    </main>
+
+    <script src="main.js"></script>
 </body>
 </html>
